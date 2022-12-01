@@ -7,7 +7,6 @@ import chechAuth from "../utils/chechAuth.js";
 import upload from "../utils/multer.js"
 
 
-
 router
   .post('/auth/login',loginValidation,UserController.registor)
   .post('/auth/registor', registerValidation, UserController.login)
