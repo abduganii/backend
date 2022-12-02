@@ -19,11 +19,11 @@ router
       })
   })
 
-  .get('/post',PostController.AllPost)
-  .get('/post/:id',PostController.OnePost)
-  .post('/post',chechAuth,postCreateValidation,PostController.createPost)
-  .put('/post/:id',chechAuth,postCreateValidation,PostController.updatePost)
-  .delete('/post/:id', chechAuth, PostController.removePost)
+  .get('/posts',PostController.AllPost)
+  .get('/posts/:id',PostController.OnePost)
+  .post('/posts',chechAuth,postCreateValidation,PostController.createPost)
+  .put('/posts/:id',chechAuth,postCreateValidation,PostController.updatePost)
+  .delete('/posts/:id', chechAuth, PostController.removePost)
   
 
 export default router;
