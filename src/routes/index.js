@@ -15,7 +15,7 @@ router
 
   .post('/upload',chechAuth, upload.single('image'), (req, res)=> {
       res.json({
-        url:`/uploads/${req.file.originalname}`
+        url:`https://blogs-yho5.onrender.com/uploads/${req.file.originalname}`
       })
   })
 
