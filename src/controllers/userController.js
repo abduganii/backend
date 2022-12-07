@@ -34,10 +34,7 @@ export const registor = async (req, res) => {
           }
       )
         
-      res.send({
-          message: "Registration successful",
-          token:token
-      })
+      res.send({user,token})
     } catch (error) {
           console.log(error)
         res.status(500).send({
@@ -51,12 +48,15 @@ export const login = async(req, res) => {
     try {
         const user = await UserModel.findOne({email: req.body.email})
         
+
         if (!user) {
             return res.status(404).send({
                 message: 'User is not found'
             });
         }
         const isValidpass =await bcrypt.compare(req.body.password, user.passwordHash)
+
+       
 
         if (!isValidpass) {
             return res.status(400).json({
@@ -75,10 +75,7 @@ export const login = async(req, res) => {
             }
         )
 
-        res.send({
-            message: "Registration successful",
-            token:token
-        })
+        res.send({user,token})
 
     } catch (error) {
         console.log(error)
@@ -98,7 +95,8 @@ export const getUser  =  async(req, res) => {
                message:'User is not found'
            }) 
         }
-        res.send(user)
+      
+        res.send( {user})
     } catch (error) {
         res.status(500).json({
             message:"No access"

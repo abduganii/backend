@@ -8,16 +8,17 @@ import upload from "../utils/multer.js"
 
 
 router
-  .post('/auth/login',loginValidation,UserController.registor)
-  .post('/auth/registor', registerValidation, UserController.login)
+  .post('/auth/login',loginValidation,UserController.login)
+  .post('/auth/registor', registerValidation, UserController.registor)
   .get('/auth/me', chechAuth, UserController.getUser)
-
 
   .post('/upload',chechAuth, upload.single('image'), (req, res)=> {
       res.json({
-        url:`https://blogs-yho5.onrender.com/uploads/${req.file.originalname}`
+        url:`/uploads/${req.file.originalname}`
       })
   })
+
+  .get('/tags',PostController.getLastTags)
 
   .get('/posts',PostController.AllPost)
   .get('/posts/:id',PostController.OnePost)
