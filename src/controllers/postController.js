@@ -80,7 +80,7 @@ export const createPost = async(req, res) => {
             title: title,
             text: text,
             tags: tags.split(','),
-            imageURL: `https://blogs-yho5.onrender.com${imageURL}`,
+            imageURL: imageURL,
             user: req.userId 
         })
        await newpost.save();
@@ -110,7 +110,7 @@ export const updatePost = async (req, res) => {
                 title: title,
                 text: text,
                 tags: tags.split(','),
-                imageURL: `https://blogs-yho5.onrender.com${imageURL}`,
+                imageURL: imageURL,
                 user: req.userId 
             }
         )
